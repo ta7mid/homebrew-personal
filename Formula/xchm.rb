@@ -1,8 +1,8 @@
 class Xchm < Formula
   desc "Compiled HTML Help (CHM) file viewer built on chmlib"
   homepage "https://github.com/rzvncj/xCHM"
-  url "https://github.com/rzvncj/xCHM/archive/refs/tags/1.39.tar.gz"
-  sha256 "e806a6daa6db115406f75f6c1e969734db62dd000b39bb7d55e0ba4c1a88ec16"
+  url "https://github.com/rzvncj/xCHM/archive/refs/tags/1.40.tar.gz"
+  sha256 "b07e6459c90af4067d0c128cc86e8905c976b200e32cdb7cea64134609885ac3"
   license "GPL-2.0-or-later"
   head "https://github.com/rzvncj/xCHM.git", branch: "master"
 
