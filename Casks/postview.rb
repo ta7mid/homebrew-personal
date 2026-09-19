@@ -2,8 +2,7 @@ cask "postview" do
   version "1.9.3"
   sha256 "8b1006b812fd9645ee5ba53c3798991cc6c73b88e525d6968c77749a60eb9678"
 
-  url "https://web.archive.org/web/20180818013748if_/https://metaobject.com/downloads/Products/PostView/PostView-#{version}.dmg",
-      verified: "archive.org/web/20180818013748if_/https://metaobject.com/"
+  url "https://web.archive.org/web/20180818013748if_/https://metaobject.com/downloads/Products/PostView/PostView-#{version}.dmg"
   name "PostView"
   desc "Viewer for PDF, PostScript and image files"
   homepage "https://www.metaobject.com/Products/"
@@ -12,6 +11,8 @@ cask "postview" do
     url :homepage
     regex(/Current version: (\d+(?:\.\d+)+): <a href="[^">]*?PostView[._-]v?\d+(?:\.\d+)+\.dmg/i)
   end
+
+  depends_on :macos
 
   app "PostView.app"
 
