@@ -1,0 +1,18 @@
+# macOS metadata
+.DS_Store
+
+# Local Ruby dependencies and language-server state
+/.bundle/
+/.ruby-lsp/
+/vendor/bundle/
+
+# Generated documentation and analysis caches
+/.yardoc/
+/.yardoc
+/.solargraph/cache/
+/.rubocop_cache/
+/.sorbet/
+/.cache/
+
+# Local debugging history
+/.byebug_history

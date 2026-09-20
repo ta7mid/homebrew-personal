@@ -1,0 +1,30 @@
+---
+# This tap lives at <brew repository>/Library/Taps/<owner>/<tap>.
+include:
+  - Formula/**/*.rb
+  - Casks/**/*.rb
+  - .solargraph/homebrew.rb
+  - ../../../Homebrew/**/*.rb
+  - ../../../Homebrew/sorbet/rbi/dsl/**/*.rbi
+  - ../../../Homebrew/sorbet/rbi/gems/minitest@*.rbi
+exclude:
+  - ../../../Homebrew/vendor/**/*
+  - ../../../Homebrew/test/**/*
+  - ../../../Homebrew/cmd/**/*
+  - ../../../Homebrew/dev-cmd/**/*
+  - ../../../Homebrew/rubocops/**/*
+  - ../../../Homebrew/sorbet/tapioca/**/*
+  - ../../../Homebrew/sorbet/rbi/dsl/r_spec/**/*
+  - ../../../Homebrew/sorbet/rbi/dsl/rubo_cop/**/*
+require_paths:
+  - ../../../Homebrew
+require: []
+domains: []
+# Start the server with this repository as its working directory.
+plugins:
+  - ./.solargraph/nested_blocks.rb
+# Homebrew's dynamic DSL produces false positives in generic lint/type checks.
+# Keep syntax diagnostics. Use brew style for Homebrew-aware lint and formatting.
+reporters:
+  - update_errors
+max_files: 5000
