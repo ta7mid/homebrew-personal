@@ -1,5 +1,5 @@
 cask "mathmagic-lite" do
-  version "10.41"
+  version "10.5"
   sha256 :no_check
 
   url "http://www.mathmagic.com/download/installers/MathMagicLite.64-bit.zip"
