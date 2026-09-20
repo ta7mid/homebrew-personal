@@ -4,7 +4,7 @@ cask "mathmagic-lite" do
 
   url "http://www.mathmagic.com/download/installers/MathMagicLite.64-bit.zip"
   name "MathMagic Lite"
-  desc "Editor and format converter for mathematical expressions"
+  desc "Editor and format converter for mathematical expressions and equations"
   homepage "http://www.mathmagic.com/product/lite.html"
 
   livecheck do
@@ -12,7 +12,7 @@ cask "mathmagic-lite" do
     regex(/<a href="[^">]*?MathMagicLite.64-bit.zip">MathMagic Lite v?(\d+(?:\.\d+)+) for Mac[^\n]+64-bit/i)
   end
 
-  depends_on macos: :big_sur
+  depends_on :macos
 
   suite "MathMagic Lite 64-bit"
 
