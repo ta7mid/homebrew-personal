@@ -7,15 +7,9 @@ cask "focus-editor" do
   desc "Simple and fast text editor"
   homepage "https://focus-editor.dev/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   depends_on :macos
 
   app "Focus.app"
-  binary "Focus.app/Contents/MacOS/Focus"
 
   zap trash: "~/Library/Application Support/dev.focus-editor"
 
