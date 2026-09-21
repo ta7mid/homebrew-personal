@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-# Run from the tap root using the same gem environment as Solargraph.
+# Run from the tap root with Solargraph's own gem environment and the Ruby it is built against:
+#   ruby="$(brew --prefix ruby)/bin/ruby"; gems="$(brew --prefix solargraph)/libexec"
+#   GEM_HOME="$gems" GEM_PATH="$gems:$("$ruby" -e 'puts Gem.default_dir')" "$ruby" .solargraph/check.rb
 require 'solargraph'
 Dir.chdir(File.expand_path('..', __dir__))
 workspace = Solargraph::Workspace.new(Dir.pwd)

@@ -57,7 +57,7 @@ class Xchm < Formula
       # A CHM the viewer parsed successfully is kept open for random access,
       # while a rejected one is closed again, so the file being held open
       # shows the document was loaded.
-      chm_loaded = false
+      chm_loaded = T.let(false, T::Boolean)
       30.times do
         sleep 1
         chm_loaded = if OS.mac?

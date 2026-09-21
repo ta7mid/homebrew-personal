@@ -1,0 +1,12 @@
+# Sorbet reports nothing useful below `typed: true`, and formulae and casks carry no sigil.
+# Its override file takes literal paths rather than globs, so `sorbet/check.rb` fails when a
+# formula or cask is missing here rather than letting it go silently unchecked.
+true:
+  - './Casks/focus-editor.rb'
+  - './Casks/font-calling-code.rb'
+  - './Casks/mathmagic-lite.rb'
+  - './Casks/postview.rb'
+  - './Formula/armci-mpi.rb'
+  - './Formula/cmakelang.rb'
+  - './Formula/sk1-color-picker.rb'
+  - './Formula/xchm.rb'

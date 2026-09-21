@@ -1,0 +1,37 @@
+# This tap lives at <brew repository>/Library/Taps/<owner>/<tap>, so `../../..` is `Library`.
+# Start the server with this repository as its working directory.
+#
+# Homebrew's own `Homebrew/sorbet/config` ignores `Formula` and `Casks`, so `brew typecheck`
+# never sees a tap's DSL files. This config exists to check exactly those files, against the
+# installed Homebrew as their API.
+--dir=.
+--dir=../../../Homebrew
+
+# Sorbet's language server otherwise refuses more than one input directory. Its warning is about
+# watching the extra directory for edits, which does not apply: Homebrew's source is read here,
+# never written. Restart the server after `brew update`.
+--forcibly-silence-lsp-multiple-dir-error
+
+# Analysis helpers and scratch checkouts, not part of the tap.
+--ignore=/.claude
+--ignore=/.solargraph
+--ignore=/vendor
+--ignore=/test
+# Its `Test::Helper` constants live in `test/`, ignored above.
+--ignore=/sorbet/rbi/shims/rspec.rbi
+
+# Homebrew's own config needs this; `Homebrew::Assertions` uses `requires_ancestor`.
+--enable-experimental-requires-ancestor
+
+# Check this tap's DSL files only. Homebrew's source is upstream's to typecheck, and holding it
+# to a strictness its own sigils do not claim reports errors in files nobody here can fix.
+--typed=false
+--typed-override=sorbet/typed_overrides.yaml
+
+# A formula subclass does not re-declare `Formula::Cache`; upstream works around the same error
+# with `Homebrew/sorbet/rbi/shims/portable_formula.rbi`.
+--suppress-error-code=5014
+# `T.absurd` needs `typed: true`, which Homebrew's files no longer claim here.
+--suppress-error-code=5039
+# Splats of a statically unknown size; Homebrew suppresses this too.
+--suppress-error-code=7019

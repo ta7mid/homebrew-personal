@@ -1,0 +1,18 @@
+---
+# Passed as `--config` to `rubocop --lsp`; see `.zed/settings.json`.
+#
+# This tap lives at <brew repository>/Library/Taps/<owner>/<tap>, so `../../..` is `Library`.
+# Inheriting its `.rubocop.yml` is what loads `Homebrew/rubocops.rb`, and with it the `Cask`,
+# `FormulaAudit` and `Homebrew` departments. The `.rubocop.yml` Homebrew syncs into taps carries
+# neither that `require` nor the `plugins` list, so on its own it lints formulae as plain Ruby.
+inherit_from: ../../../.rubocop.yml
+
+# `brew rubocop` installs Homebrew's `style` bundle group when it is missing, printing progress
+# to stdout, which is where the language server speaks JSON-RPC. After a `brew update` that bumps
+# those gems, run `brew ruby .rubocop-lsp/check.rb` once so the install happens outside the editor.
+
+# `brew style` passes `--except FormulaAuditStrict`. RuboCop's language server rebuilds its own
+# options in `RuboCop::Lsp::StdinRunner`, so command-line cop filters never reach it and the
+# department has to be disabled here instead.
+FormulaAuditStrict:
+  Enabled: false

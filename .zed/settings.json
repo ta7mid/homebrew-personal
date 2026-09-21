@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "Ruby": {
+      "tab_size": 2,
+      "language_servers": ["solargraph", "rubocop", "sorbet", "!ruby-lsp"],
+      "format_on_save": "on",
+      "formatter": { "language_server": { "name": "rubocop" } }
+    }
+  },
+  "lsp": {
+    "rubocop": {
+      "binary": {
+        "path": "brew",
+        "arguments": ["rubocop", "--lsp", "--config", ".rubocop-lsp.yml"]
+      },
+      "initialization_options": { "safeAutocorrect": true }
+    },
+    "sorbet": {
+      "binary": { "path": "brew", "arguments": ["ruby", "sorbet/srb.rb", "--", "--lsp"] }
+    }
+  }
+}

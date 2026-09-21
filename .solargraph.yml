@@ -18,13 +18,11 @@ exclude:
   - ../../../Homebrew/sorbet/rbi/dsl/rubo_cop/**/*
 require_paths:
   - ../../../Homebrew
-require: []
-domains: []
 # Start the server with this repository as its working directory.
 plugins:
   - ./.solargraph/nested_blocks.rb
-# Homebrew's dynamic DSL produces false positives in generic lint/type checks.
-# Keep syntax diagnostics. Use brew style for Homebrew-aware lint and formatting.
+# Homebrew's dynamic DSL produces false positives in Solargraph's generic lint and type checks,
+# and its RuboCop reporter would run without Homebrew's own cops. Keep syntax diagnostics only;
+# `.rubocop-lsp.yml` and `sorbet/config` cover linting and typechecking.
 reporters:
   - update_errors
-max_files: 5000
