@@ -1,8 +1,8 @@
 class Vicinae < Formula
   desc "Application launcher and command palette"
   homepage "https://vicinae.com/"
-  url "https://github.com/vicinaehq/vicinae/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "826b226844c66ea2fa97fdf8eb580d8c8e08533c699ffa0c361cc2d171625dd3"
+  url "https://github.com/vicinaehq/vicinae/archive/refs/tags/v0.29.1.tar.gz"
+  sha256 "ca79782e7c94faa9da1bd12ba1a361cea41970db781447773acb9a580a47cea8"
   license "GPL-3.0-or-later"
   head "https://github.com/vicinaehq/vicinae.git", branch: "main"
 
